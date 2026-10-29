@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>중간발표 피드백 보드</title>
+<style>body{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",sans-serif;margin:0;padding:20px;background:#F4F6F9;color:#2B3240;word-break:keep-all}h1{font-size:22px;color:#1F2A44;margin:0 0 4px}.k{color:#6F7785;font-size:14px;margin-bottom:14px}.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:14px}.c{background:#fff;border:1px solid #D8DEE8;border-radius:14px;padding:14px}.c h2{margin:0 0 8px;font-size:19px;color:#1F2A44;display:flex;align-items:center;gap:8px}.c h2 small{font-size:12.5px;color:#6F7785;font-weight:400}table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:4px 4px;text-align:left;vertical-align:middle}th{font-size:12.5px;color:#6F7785;font-weight:400}.b{position:relative;background:#EEF1F6;border-radius:6px;height:20px;min-width:70px}.b i{position:absolute;left:0;top:0;bottom:0;border-radius:6px}.b span{position:relative;padding-left:6px;line-height:20px;font-size:12.5px;font-weight:700}.same{background:#FFF3E0}.n{color:#6F7785;font-size:13px;margin-top:8px}.qs{margin-top:10px;border-top:1px dashed #D8DEE8;padding-top:8px;font-size:14px}.qs p{margin:4px 0}.qs.id{background:#FFF8E6;border:1px solid #F1DDA8;border-radius:10px;padding:8px 10px}.qs.self{background:#FFF4EF;border:1px solid #F0C9B8;border-radius:10px;padding:8px 10px;margin-top:10px}.qs .pf{color:#6F7785;font-size:13px}.qs i,.ov i{font-style:normal;font-size:12px;background:#E8ECF5;color:#1F2A44;border-radius:6px;padding:1px 6px}.rule{background:#1F2A44;color:#fff;border-radius:12px;padding:10px 14px;font-size:15px;margin-bottom:14px}.rule b{color:#FFD9C9}.draw{margin-left:auto;font:inherit;font-size:14px;font-weight:700;border:0;border-radius:10px;padding:7px 12px;background:#C8664A;color:#fff;cursor:pointer}.draw:disabled{background:#D8DEE8;color:#6F7785;cursor:default}.ov{position:fixed;inset:0;background:rgba(15,20,35,.82);display:none;align-items:center;justify-content:center;z-index:9;padding:20px}.ov.on{display:flex}.ov .box{background:#fff;border-radius:20px;max-width:900px;width:100%;padding:28px 30px;box-shadow:0 20px 60px rgba(0,0,0,.35)}.ov .tm{color:#6F7785;font-size:16px}.ov .q{font-size:34px;line-height:1.4;font-weight:800;color:#1F2A44;margin:12px 0 18px}.ov .q i{font-size:16px;vertical-align:middle}.ov .steps{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.ov .steps span{background:#EEF1F6;border-radius:10px;padding:8px 12px;font-size:16px}.ov .steps b{color:#C8664A}.ov .act{display:flex;gap:8px;justify-content:flex-end}.ov button{font:inherit;font-size:16px;font-weight:700;border:0;border-radius:12px;padding:11px 16px;cursor:pointer}.ov .nx{background:#1F2A44;color:#fff}.ov .cl{background:#EEF1F6;color:#1F2A44}@keyframes pop{0%{transform:scale(.6) rotate(-3deg);opacity:0}60%{transform:scale(1.04) rotate(1deg);opacity:1}100%{transform:scale(1)}}.pop{animation:pop .45s ease-out}@keyframes spin{0%{opacity:.25}50%{opacity:1}100%{opacity:.25}}.spin{animation:spin .25s linear infinite}</style>
+<style>.wait{background:#fff;border:1px dashed #D8DEE8;border-radius:14px;padding:30px;text-align:center;color:#6F7785;font-size:16px}.err{color:#B3261E}</style>
+</head><body>
+<h1>중간발표 피드백 보드 — 다른 팀이 본 우리 vs 우리가 본 우리</h1><div class="k">이름 없음 · 20초마다 새로 고침(질문 창이 열려 있을 때는 멈춤) · 주황 줄 = 다른 팀과 우리 팀원이 모두 가장 많이 짚은 고리 · <span id="upd"></span></div><div class="rule"><b>답하는 팀</b> 질문의 핵심을 한 문장으로 → 근거 · 전제 · 한계를 나눠 → 모르면 “확인할 것 · 방법”으로 → 끝에 “무엇을 · 언제까지 고칠지” 한 줄 &nbsp;·&nbsp; <b>묻는 팀</b> 답이 흐리면 “예를 들면요?” “몇 명이요?”로 한 번 더</div><div id="bd"><div class="wait">불러오는 중…</div></div>
+<div class="ov" id="ov"><div class="box"><div class="tm" id="ovT"></div><div class="q" id="ovQ"></div><div class="steps"><span><b>1</b> 질문을 한 문장으로 다시 말하기</span><span><b>2</b> 근거 · 전제 · 한계</span><span><b>3</b> 모르면 확인할 것 · 방법</span><span><b>4</b> 무엇을 · 언제까지 고칠지</span></div><div class="act"><button class="cl" id="ovC">닫기</button><button class="nx" id="ovN">🎲 다른 질문 뽑기</button></div></div></div>
+<script>
+(function(){
+  /* ▼ 교수자 설정: Apps Script 웹 앱 주소와 BOARD_KEY(Code.gs와 같게) */
+  var API = "https://script.google.com/macros/s/AKfycby46tt-ceHz1GRkaDh_3QvOoJpOr_O3C4kear_PWCQPE_RFaKL2B7lQJ_3S6RP3f8USTg/exec";
+  var KEY = (location.hash || "").replace(/^#/, "") || "mis2026";   // 주소 끝에 #열쇠 를 붙여도 됩니다(예: midfb-board.html#mis2026)
+
+  var cur = null, used = {}, busy = false;
+  function $(i){ return document.getElementById(i); }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+  function refresh(){
+    if (busy || $("ov").classList.contains("on")) return; busy = true;
+    fetch(API + "?view=boarddata&key=" + encodeURIComponent(KEY) + "&t=" + Date.now(), {credentials:"omit", redirect:"follow", cache:"no-store"})
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if (j && j.ok){ if (!$("ov").classList.contains("on")) $("bd").innerHTML = j.html; $("upd").textContent = "마지막 갱신 " + (j.at || ""); }
+        else $("bd").innerHTML = '<div class="wait err">' + esc((j && j.error) || "불러오지 못했습니다") + ' — BOARD_KEY를 확인하세요.</div>';
+      })
+      .catch(function(){ $("upd").textContent = "연결 지연 · 잠시 뒤 다시 시도"; })
+      .then(function(){ busy = false; });
+  }
+  function draw(team){
+    var c = document.querySelector('[data-team-card="' + team + '"]'); if (!c) return;
+    var qs = JSON.parse(c.getAttribute("data-q") || "[]"); if (!qs.length) return;
+    used[team] = used[team] || {};
+    var pool = qs.map(function(x, i){ return i; }).filter(function(i){ return !used[team][i]; });
+    if (!pool.length){ used[team] = {}; pool = qs.map(function(x, i){ return i; }); }
+    var pick = pool[Math.floor(Math.random() * pool.length)]; used[team][pick] = 1; cur = team;
+    var q = qs[pick]; $("ov").classList.add("on"); $("ovT").textContent = team + " 팀에게 온 질문 " + qs.length + "개 중";
+    var n = 0, el = $("ovQ"); el.className = "q spin";
+    var t = setInterval(function(){ el.textContent = qs[Math.floor(Math.random() * qs.length)].q;
+      if (++n > 8){ clearInterval(t); el.className = "q pop"; el.innerHTML = (q.t ? "<i>" + esc(q.t) + "</i> " : "") + esc(q.q); } }, 90);
+  }
+  document.addEventListener("click", function(e){
+    var b = e.target.closest && e.target.closest("[data-draw]"); if (b){ draw(b.getAttribute("data-draw")); return; }
+    if (e.target.id === "ovN" && cur) draw(cur);
+    if (e.target.id === "ovC" || e.target.id === "ov"){ $("ov").classList.remove("on"); refresh(); }
+  });
+  refresh(); setInterval(refresh, 20000);
+})();
+</script>
+</body></html>

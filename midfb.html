@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>중간발표 동료 피드백</title>
+<style>
+:root{--navy:#1F2A44;--ink:#2B3240;--mute:#6F7785;--line:#D8DEE8;--bg:#F4F6F9;--acc:#C8664A;--green:#3D7A55;--soft:#EEF1F6;--warn:#B3261E}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.6;word-break:keep-all;font-size:16px}
+.wrap{max-width:760px;margin:0 auto;padding:12px 14px 120px}
+header.top{background:var(--navy);color:#fff;border-radius:16px;padding:18px 16px}
+header.top .k{font-size:12.5px;color:#C9CFDC}
+header.top h1{margin:4px 0 8px;font-size:21px;line-height:1.35}
+header.top p{margin:0 0 4px;font-size:14px;color:#E6E9F0}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 14px;margin-top:14px}
+h2{font-size:18px;margin:0 0 4px;color:var(--navy);line-height:1.4}
+h2 .n{display:inline-block;background:var(--acc);color:#fff;border-radius:8px;padding:0 8px;margin-right:6px;font-size:14px}
+.sub{color:var(--mute);font-size:14px;margin:0 0 6px}
+label.f{display:block;font-weight:700;font-size:15px;margin:16px 0 6px}
+label.f small{display:block;font-weight:400;color:var(--mute);font-size:13px;line-height:1.5}
+.req{color:var(--acc);font-size:12.5px;font-weight:700;margin-left:4px}
+.opt{color:var(--mute);font-size:12.5px;font-weight:400;margin-left:4px}
+input[type=text],textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 12px;font:inherit;font-size:16px;background:#fff;color:var(--ink)}
+textarea{min-height:84px;resize:vertical}
+::placeholder{color:#A3AAB6}
+input:focus,textarea:focus{outline:2px solid #9DB2D9;border-color:#9DB2D9}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips label{position:relative;border:1px solid var(--line);border-radius:99px;padding:7px 12px;font-size:14px;cursor:pointer;background:#fff;line-height:1.3}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips label:focus-within{outline:2px solid #9DB2D9}
+.chips label.on{border-color:var(--navy);background:#E8ECF5;font-weight:700;color:var(--navy)}
+.lead{font-size:15px;margin:2px 0 12px}
+.steps{display:flex;gap:6px;margin:0 0 14px}
+.steps div{flex:1 1 0;min-width:0;background:var(--soft);border-radius:12px;padding:8px 10px;font-size:13.5px;line-height:1.45}
+.steps b{display:block;color:var(--navy);font-size:14px}
+.links{list-style:none;margin:0;padding:0 0 0 14px;position:relative}
+.links:before{content:"";position:absolute;left:5px;top:12px;bottom:12px;border-left:2px solid #C5CEDD}
+.links li{position:relative;padding:6px 0 8px 12px}
+.links li:before{content:"";position:absolute;left:-14px;top:13px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.links .nm{display:inline-block;background:var(--navy);color:#fff;border-radius:8px;padding:1px 9px;font-size:13px;font-weight:700;margin-right:6px}
+.links .q{font-weight:700;color:var(--ink);font-size:15px}
+.links .s{display:block;color:var(--mute);font-size:13px;margin-top:2px}
+.links li.out{margin-top:6px;border-top:1px dashed var(--line);padding-top:10px}
+.links li.out:before{border-style:dashed;top:17px}
+.links li.out .nm{background:var(--mute)}
+.lens{background:#FFF4EF;border-left:4px solid var(--acc);border-radius:8px;padding:9px 11px;font-size:14px;margin:12px 0 4px}
+.eg{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:10px;font-size:13.5px}
+.eg .h{font-weight:700;color:var(--navy);margin-bottom:4px}
+.eg p{margin:4px 0;display:flex;gap:8px;line-height:1.5}
+.eg i{flex:0 0 auto;font-style:normal;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;height:fit-content;margin-top:1px}
+.t1{background:#FBEDEA;color:#8E2A1F}.t2{background:#E8ECF5;color:var(--navy)}.t3{background:#EAF4EC;color:#1E5232}
+details.eg summary{cursor:pointer;font-weight:700;color:var(--navy)}
+.lhint{display:none;margin-top:8px;font-size:13px;background:var(--soft);border-radius:10px;padding:7px 10px}
+.lhint.on{display:block}
+.lhint b{color:var(--navy)}
+.team{border:2px solid var(--navy);border-top:0;border-radius:0 0 16px 16px;padding:14px 12px;background:#FBFCFE}
+.team[hidden]{display:none}
+.tabs{display:flex;gap:4px;margin-top:12px;position:sticky;top:0;z-index:5;background:#fff;padding-top:6px;border-bottom:2px solid var(--navy)}
+.tabs button{flex:1 1 0;min-width:0;background:var(--soft);color:var(--mute);border-radius:12px 12px 0 0;padding:9px 8px 8px;font-size:15px;line-height:1.3;text-align:center}
+.tabs button[aria-selected=true]{background:var(--navy);color:#fff}
+.tabs .pg{display:block;font-size:12px;font-weight:400;margin-top:2px;opacity:.9}
+.tabs .pg.done{color:var(--green);font-weight:700}
+.tabs button[aria-selected=true] .pg.done{color:#BFE3CB}
+.nexttab{margin-top:16px;width:100%}
+.mtags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+.mtags button{background:#fff;border:1px solid var(--line);color:var(--navy);border-radius:10px;padding:6px 9px;font-size:13.5px;font-weight:700}
+.mtags button b{display:none;margin-left:4px;background:var(--acc);color:#fff;border-radius:99px;padding:0 6px;font-size:11.5px}
+.mtags button.has{border-color:var(--acc)}
+.mtags button.has b{display:inline-block}
+.spark{margin-top:18px;background:#FFF8E6;border:1px solid #F1DDA8;border-radius:14px;padding:12px 12px 8px}
+.spark .chips label.on{border-color:#B7791F;background:#FCEFC7;color:#7A4E0E}
+.sendbox{margin-top:18px;background:var(--soft);border-radius:14px;padding:12px}
+.sendone{width:100%;font-size:16px;padding:13px}
+.sendst{font-size:13px;color:var(--mute);margin-top:8px;line-height:1.45}
+.sendst.ok{color:var(--green);font-weight:700}.sendst.no{color:var(--warn);font-weight:700}
+.mine{background:#F4F7FB;border:1px dashed #B9C6DA;border-radius:12px;padding:10px 12px;font-size:14px;margin:8px 0 4px}
+.mine b{color:var(--navy)}.mine p{margin:3px 0}
+.rtabs{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 12px}
+.rtabs button{background:#fff;border:1px solid var(--line);color:var(--navy);border-radius:99px;padding:7px 12px;font-size:14px;font-weight:700}
+.rtabs button b{margin-left:5px;background:var(--soft);border-radius:99px;padding:0 7px;font-size:12px}
+.rtabs button[aria-selected=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.rtabs button[aria-selected=true] b{background:rgba(255,255,255,.2)}
+.ritem{border:1px solid var(--line);border-radius:12px;padding:9px 11px;margin-bottom:8px;font-size:14.5px;background:#FBFCFE}
+.ritem .rt{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:1px 7px;margin:0 4px 4px 0;background:#E8ECF5;color:var(--navy)}
+.ritem .rt.w{background:#FBEDEA;color:#8E2A1F}.ritem .rt.s{background:#EAF4EC;color:#1E5232}.ritem .rt.y{background:#FCEFC7;color:#7A4E0E}.ritem .rt.g{background:var(--soft);color:var(--mute);font-weight:400}
+.ritem .rs{display:block;color:var(--mute);font-size:13px;margin-top:3px}
+.rbar{display:flex;align-items:center;gap:8px;margin:4px 0;font-size:14px}.rbar span{flex:0 0 112px}.rbar i{display:block;height:16px;border-radius:5px;background:#9DB2D9}.rbar i.s{background:#9BCBA9}.rbar em{font-style:normal;font-weight:700;font-size:13px}
+#guide.folded>*:not(h2){display:none}
+#guide.folded h2{margin:0}
+.fold{float:right;font-size:13px;font-weight:400;color:var(--mute);margin-top:3px}
+.qa{margin-top:18px;border-top:1px dashed var(--line);padding-top:12px}
+.qa .qh{font-weight:700;font-size:15px;color:var(--navy)}
+.team h3{margin:0;font-size:17px;color:var(--navy)}
+.team .tag{display:inline-block;font-size:12px;background:var(--soft);border-radius:99px;padding:1px 9px;color:var(--mute);margin-left:6px;font-weight:400}
+.ex{font-size:13px;color:var(--mute);background:var(--soft);border-radius:10px;padding:8px 10px;margin-top:6px}
+.ex b{color:var(--ink)}
+.hint{font-size:13px;color:var(--mute)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:9}
+.bar .in{max-width:760px;margin:0 auto;display:flex;gap:8px;align-items:center}
+.bar .st{flex:1;font-size:12.5px;color:var(--mute);line-height:1.35}
+.bar button{padding:11px 12px;white-space:nowrap}
+@media (max-width:520px){.bar .in{flex-wrap:wrap;gap:6px}.bar .st{flex-basis:100%}.bar button{flex:1}}
+#pdfdoc{display:none}
+.rep{width:794px;background:#fff;color:#111827;font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:12.5px;line-height:1.55;padding:44px 48px;margin:0 auto;word-break:keep-all}
+.rep h1{font-size:20px;text-align:center;margin:0 0 4px;letter-spacing:-.01em;color:#111827}
+.rep .sub{text-align:center;color:#4B5563;font-size:12px;margin-bottom:18px}
+.rep h2{font-size:14px;margin:18px 0 8px;padding:6px 10px;background:#EEF2F6;border-left:3px solid #1F2A44;color:#0F172A}
+.rep table{border-collapse:collapse;width:100%;margin:4px 0}
+.rep th,.rep td{border:1px solid #9CA3AF;padding:5px 8px;vertical-align:top;text-align:left;color:#111827}
+.rep th{background:#F3F4F6;font-weight:600;width:130px}
+.rep .pre{white-space:pre-wrap}
+.rep .muted{color:#6B7280}
+.rep .foot{margin-top:18px;font-size:11px;color:#6B7280;text-align:right}
+@media print{body>*:not(#pdfdoc){display:none!important}#pdfdoc{display:block!important}}
+button{font:inherit;border:0;border-radius:12px;padding:11px 14px;font-weight:700;cursor:pointer}
+button:disabled{opacity:.6}
+.b1{background:var(--navy);color:#fff}
+.b2{background:var(--soft);color:var(--navy)}
+.b3{background:none;color:var(--mute);text-decoration:underline;padding:6px 0;font-weight:400;font-size:13px}
+.msg{margin-top:10px;font-size:14px;border-radius:10px;padding:10px 12px;display:none}
+.msg.ok{display:block;background:#EAF4EC;color:#1E5232}
+.msg.no{display:block;background:#FBEDEA;color:#8E2A1F}
+.miss{outline:2px solid var(--warn)!important;border-color:var(--warn)!important;border-radius:12px}
+.cnt{font-size:12px;color:var(--mute);text-align:right}
+@media print{.bar,.b3{display:none}body{background:#fff}.card,.team{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap" id="root">
+<header class="top">
+  <div class="k">캡스톤디자인(경영정보Ⅰ) · 중간발표 · 10/30(금) <span style="opacity:.7">· 화면 v2.8</span></div>
+  <h1>동료 피드백 — 다른 팀의 가장 약한 고리를 찾아 주고, 우리 팀으로 가져오기</h1>
+  <p><b>발표 중</b> 그 팀 탭의 메모에 짧게 → <b>피드백 시간</b> ①~⑤를 채우고 <b>‘지금 보내기’</b>. 보드에 바로 올라가 그 팀이 곧바로 답합니다.</p>
+  <p><b>마지막 발표 뒤</b> ‘우리 팀에 적용’(⑦~⑩)을 쓰고 <b>제출</b>로 마무리합니다.</p>
+</header>
+
+<section class="card">
+  <h2><span class="n">0</span>나</h2>
+  <label class="f" for="name">이름 <span class="req">필수</span></label>
+  <input type="text" id="name" data-k="name" autocomplete="name">
+  <label class="f" for="sid">학번 <span class="req">필수</span></label>
+  <input type="text" id="sid" data-k="sid" inputmode="numeric" autocomplete="off">
+  <label class="f">내 팀 <span class="req">필수</span><small>내 팀에는 피드백을 쓰지 않습니다.</small></label>
+  <div class="chips" id="myTeam" role="radiogroup" aria-label="내 팀"></div>
+</section>
+
+<section class="card" id="guide">
+  <h2 id="guideH" style="cursor:pointer"><span class="n">!</span>보는 법 — 끊어진 고리 하나만 찾기 <span class="fold" id="guideT"></span></h2>
+  <p class="lead">좋은 프로젝트는 아래 사슬이 <b>위에서 아래로 끊기지 않고</b> 이어집니다. 발표를 들으며 각 고리에서 질문을 던져 보고, <b>답이 가장 약한 곳 하나</b>만 고릅니다.</p>
+  <div class="steps">
+    <div><b>1 · 듣기</b>고리마다 굵은 질문을 마음속으로</div>
+    <div><b>2 · 고르기</b>답이 가장 약한 고리 하나</div>
+    <div><b>3 · 쓰기</b>무엇이 약한가 → 바꾸기 → 확인</div>
+  </div>
+  <ul class="links" id="legend"></ul>
+  <div class="lens"><b>고객의 눈으로 들으세요.</b> 그 나이대 당사자라면 이 발표의 어디서 <b>멈칫할까?</b> 다만 내 추측은 추측이라고 씁니다 (“~일 것 같다, 확인 필요”).</div>
+  <div class="eg"><div class="h">예시 — 고리: 근거→문제</div>
+    <p><i class="t1">약한 곳</i><span>인용문이 면접자가 요약한 문장이라, 실제로 들은 말인지 알 수 없다.</span></p>
+    <p><i class="t2">바꾸기</i><span>기록지 원문으로 바꾸고, 같은 말을 한 사람이 몇 명인지 함께 적는다.</span></p>
+    <p><i class="t3">확인</i><span>남은 인터뷰 2명에게 같은 질문을 해 같은 말이 나오는지 본다.</span></p></div>
+  <details class="eg"><summary>예시 하나 더 — 고리: 원인→아이디어</summary>
+    <p><i class="t1">약한 곳</i><span>후보 A ‘첫발 동행’이 ‘모르는 사람 모임은 믿을 단서가 없다’(원인 2)를 직접 겨냥하지 않는다.</span></p>
+    <p><i class="t2">바꾸기</i><span>첫 모임 전날 동행 선배와 3분 통화를 넣는다.</span></p>
+    <p><i class="t3">확인</i><span>5명에게 통화가 있는 안내와 없는 안내를 보여 주고 “가 보겠다”가 몇 명인지 비교한다.</span></p></details>
+  <details class="eg rules"><summary>질의응답 규칙 — 묻는 쪽 · 답하는 쪽</summary>
+    <p><i class="t2">답할 때</i><span>① 질문의 핵심을 한 문장으로 다시 말한다 → ② 근거 · 전제 · 한계를 나눠 답한다 → ③ 모르면 추측으로 덮지 말고 “확인할 것 · 확인 방법”으로 답한다.</span></p>
+    <p><i class="t3">물을 때</i><span>확인만 하는 질문 대신 이 팀이 다시 생각하게 만드는 질문을 한다. 답이 흐리면 “예를 들면요?” “몇 명이요?”로 한 번 더 묻는다.</span></p>
+    <p><i class="t1">끝나면</i><span>답하는 팀은 “무엇을 · 어떻게 · 언제까지 고칠지”를 한 줄로 정리한다.</span></p></details>
+  <p class="hint" style="margin:10px 0 0">“좋아요 · 잘했어요”는 피드백이 아닙니다. 그 팀이 <b>내일 바로 고칠 수 있는 한 가지</b>를 씁니다.</p>
+</section>
+
+<div id="teams"></div>
+
+<section class="card" id="recvCard" hidden>
+  <h2><span class="n">3</span>우리 팀이 받은 동료 피드백 <span class="fold" id="recvAt"></span></h2>
+  <p class="sub">다른 팀 학생들이 우리 팀에 보낸 내용입니다(이름 없음). 종류를 눌러 열어 보세요. 30초마다 새로 고칩니다.</p>
+  <div class="rtabs" id="rtabs"></div>
+  <div id="rbody"><p class="hint">불러오는 중…</p></div>
+</section>
+
+<section class="card">
+  <h2><span class="n">✓</span>제출 전 확인</h2>
+  <div class="chips">
+    <label><input type="checkbox" name="c1" value="ok">사람이 아니라 내용에 대해, 고칠 방법과 함께 썼다</label>
+  </div>
+  <p class="hint" style="margin-top:10px">제출한 뒤에도 고쳐서 다시 제출할 수 있습니다(마지막 제출만 반영). 담당교수는 이름과 함께 보고, 각 팀에는 <b>이름 없이</b> 내용만 전달됩니다.</p>
+  <div class="msg" id="msg"></div>
+  <p class="hint" id="copyHint" style="display:none;margin:10px 0 4px">PDF가 만들어지지 않으면 아래 글을 모두 복사해 DOOR에 붙여 넣으세요.</p>
+  <textarea id="copy" readonly style="display:none;min-height:160px;font-size:13px"></textarea>
+  <button class="b3" id="wipe" type="button">이 기기에서 내 입력 지우기 (공용 컴퓨터라면 제출 뒤 꼭 누르세요)</button>
+</section>
+</div>
+
+<div class="bar"><div class="in">
+  <div class="st" id="st"></div>
+  <button class="b2" id="keep" type="button">저장</button>
+  <button class="b2" id="pdf" type="button">PDF 저장</button>
+  <button class="b1" id="send" type="button">제출</button>
+</div></div>
+<div id="pdfdoc"></div>
+<div id="repHost" style="position:fixed;left:-10000px;top:0;" aria-hidden="true"></div>
+
+<script>
+(function(){
+  /* ===== 교수자 설정 ===== */
+  // ① 이 화면을 Apps Script(form)에서 띄우면 비워 둬도 됩니다. HTML 파일로 나눠 줄 때만 …/exec 주소를 넣습니다.
+  var SUBMIT_URL = "https://script.google.com/macros/s/AKfycby46tt-ceHz1GRkaDh_3QvOoJpOr_O3C4kear_PWCQPE_RFaKL2B7lQJ_3S6RP3f8USTg/exec";
+  // ② 발표 순서대로 적습니다. name은 Code.gs의 TEAMS와 글자 하나까지 같아야 합니다.
+  //    q: 각 팀 6-1 슬라이드의 ‘청중에게 묻는 질문’ 2개(미리 받으면 넣고, 없으면 비워 둠)
+  var TEAMS = [
+    {id:"insaeng", name:"인생2막", topic:"50~60대 · 새 모임 첫발", q:["",""]},
+    {id:"changup", name:"이창업동의", topic:"60~70대 · 물건 정리", q:["",""]},
+    {id:"yeolsim", name:"열심히 하겠습니다~!", topic:"50~70대 · 만든 것 나누기", q:["",""]}
+  ];
+  /* ====================== */
+
+  var KEY = "cap-mis-midfb-v2";
+  var PAGES = ["1-1 한 사람 · 숫자","1-2 HMW 변화","1-3 기존 방식의 빈틈","2-1 누구를 만났나","2-2 핵심 발견","2-3 페르소나","3-1 문제정의문 · HMW","3-2 원인 구조","4-1 아이디어 후보","4-2 오가는 정보","6-1 아직 모르는 것","6-2 진척 · 다음 단계","부록 근거 · 출처","발표 전달"];
+  // v는 Code.gs의 LINK_ORDER와 같아야 합니다. q = 들으며 물을 질문, d = 약하다는 신호
+  var LINKS = [
+    {v:"대상", q:"누구의 문제인가?", d:"한 사람이 떠오르지 않거나, 발표 중에 대상이 바뀐다"},
+    {v:"근거→문제", q:"정말 그렇게 말했나 · 봤나?", d:"요약 · 추측이 인용처럼 쓰였거나, 몇 명 중 몇 명인지 없다"},
+    {v:"문제→원인", q:"왜 그런가?", d:"원인이 비어 있거나, 하나뿐이다"},
+    {v:"원인→아이디어", q:"이 아이디어가 그 원인을 겨냥하나?", d:"원인과 상관없는 기능이거나, HMW에 이미 해결책이 들어 있다"},
+    {v:"아이디어→확인", q:"효과가 있는지 어떻게 알지?", d:"누구에게 무엇을 해 볼지가 없다"},
+    {v:"전달", q:"내용은 있는데 안 들렸나?", d:"사슬 밖 · 내용보다 발표 방식에서 막혔다", out:true}
+  ];
+  function linkOf(v){ return LINKS.filter(function(x){ return x.v === v; })[0]; }
+  // 💡 발상 자극 — 누르면 생각을 틔우는 질문이 나옵니다
+  var SPARKS = [
+    {v:"반대로 하면", e:"지금 아이디어의 정반대는? 예: ‘모임에 데려가기’ → ‘모임이 집 앞으로 오기’"},
+    {v:"딴 업계에서 빌리기", e:"배달앱 · 당근 · 넷플릭스 · 편의점이라면 이 문제를 어떻게 풀까?"},
+    {v:"이미 모이는 곳에 얹기", e:"경로당 · 동네 미용실 · 교회 · 가족 단톡방처럼 이미 사람이 모이는 곳에 붙이면?"},
+    {v:"0원 · 내일 당장", e:"돈 없이, 내일 한 사람에게 바로 해 볼 수 있는 가장 작은 버전은?"},
+    {v:"고객이 주인공", e:"고객이 받는 사람이 아니라 하는 사람(선배 · 강사 · 판매자)이 되면?"},
+    {v:"한 사람 더", e:"가족 · 손주 · 친구 · 이웃을 끌어들이면 무엇이 쉬워질까?"}
+  ];
+  // 질문 유형 — 확인용 질문이 아니라 논리 · 근거 · 대안을 깊게 하는 질문
+  var QTYPES = [
+    {v:"사실 확인", e:"이 인용 · 숫자는 몇 명에게서, 어떻게 나왔나요?"},
+    {v:"논리 검증", e:"이 원인에서 이 아이디어로 넘어간 근거는 무엇인가요?"},
+    {v:"대안 비교", e:"다른 방법 대신 이 아이디어를 고른 이유는요?"},
+    {v:"실행 검증", e:"누가 · 언제 · 누구에게 처음 해 보나요?"},
+    {v:"리스크", e:"‘○○일 것이다’라는 가정이 틀리면 어떻게 되나요?"},
+    {v:"고객 관점", e:"그 나이대 당사자가 처음 쓸 때 어디서 멈출까요?"}
+  ];
+  function hintHtml(key, v){
+    if (/_spark$/.test(key)){ var z = SPARKS.filter(function(x){ return x.v === v; })[0]; return z ? '<b>' + esc(z.e) + '</b>' : ""; }
+    if (/_qtype$/.test(key)){ var y = QTYPES.filter(function(x){ return x.v === v; })[0]; return y ? '예: <b>“' + esc(y.e) + '”</b> — 이 팀의 발표 내용으로 바꿔 씁니다.' : ""; }
+    var x = linkOf(v); return x ? '<b>“' + esc(x.q) + '”</b> — 약한 신호: ' + esc(x.d) + '. 왜 약한지는 바로 아래 ②에서 슬라이드를 고른 뒤 ③에 씁니다.' : ""; }
+  function paintHints(){ each(document.querySelectorAll(".lhint"), function(h){ var k = h.getAttribute("data-h"), v = data[k]; h.innerHTML = hintHtml(k, v); h.classList.toggle("on", !!v); }); }
+  var LENSES = ["그 나이대 당사자","가족","운영하는 쪽","처음 써 보는 사람"];
+  // 발표 중 메모 탭 — 사슬 순서(발표 순서)와 같게
+  var MEMO = [
+    {v:"대상", ph:"누구의 문제? 한 사람이 떠오르나?"},
+    {v:"근거", ph:"들은 말인가, 요약인가? 몇 명 중 몇 명?"},
+    {v:"문제 · 원인", ph:"왜 그런가? 원인이 하나뿐인가?"},
+    {v:"아이디어", ph:"그 원인을 겨냥하나?"},
+    {v:"확인", ph:"효과가 있는지 어떻게 알지?"},
+    {v:"기타", ph:"전달 · 궁금한 점 · 좋았던 점"}
+  ];
+  // 메모 안의 [꼬리표] 수를 세어 버튼에 표시 — 많이 붙은 곳이 ① 약한 고리 후보
+  function paintMemo(){
+    each(document.querySelectorAll("[data-mtag]"), function(b){
+      var x = b.getAttribute("data-mtag").split("|"), txt = String(data["t_" + x[0] + "_memo"] || "");
+      var n = txt.split("[" + MEMO[x[1]].v + "]").length - 1;
+      b.classList.toggle("has", n > 0); b.querySelector("b").textContent = n;
+    });
+  }
+  var BASIS = ["발표에서 본 자료 · 인용","발표에 빠져 있음","내 추측 · 경험 (확인 필요)"];
+
+  var $ = function(id){ return document.getElementById(id); };
+  var esc = function(s){ return String(s==null?"":s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); };
+  var each = function(list, fn){ Array.prototype.forEach.call(list, fn); };
+  var data = {};
+  try { data = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e) { data = {}; }
+
+  function hhmm(iso){ return new Date(iso || Date.now()).toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit"}); }
+  function persist(){ try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){} }
+  function status(){
+    var t;
+    if (data.sentAt && !data.dirty) t = "✓ 제출 완료 · " + hhmm(data.sentAt);
+    else if (data.sentAt) t = "제출 뒤 고친 내용이 있습니다 · 다시 제출해야 반영";
+    else t = "이 기기에만 임시 저장 중 · 아직 제출 전";
+    $("st").textContent = t;
+  }
+  function touch(){ data.dirty = true; persist(); status(); if (typeof paintTabs === "function") paintTabs(); paintMemo(); }
+
+  // 고정 영역
+  $("legend").innerHTML = LINKS.map(function(x){ return '<li' + (x.out ? ' class="out"' : '') + '><span class="nm">' + esc(x.v) + '</span><span class="q">' + esc(x.q) + '</span><span class="s">약한 신호: ' + esc(x.d) + '</span></li>'; }).join("");
+  $("myTeam").innerHTML = TEAMS.map(function(t){ return '<label><input type="radio" name="my" value="'+t.id+'">'+esc(t.name)+'</label>'; }).join("");
+
+  function chipBox(name, list, multi, aria){
+    return '<div class="chips" role="group" aria-label="'+esc(aria||"")+'">' + list.map(function(x){ var v = typeof x === "string" ? x : x.v;
+      return '<label><input type="'+(multi?'checkbox':'radio')+'" name="'+name+'" value="'+esc(v)+'">'+esc(v)+'</label>'; }).join("") + '</div>';
+  }
+  function ta(k, max, ph, h){ return '<textarea data-k="'+k+'" maxlength="'+max+'" placeholder="'+esc(ph||"")+'"'+(h?' style="min-height:'+h+'px"':'')+'></textarea><div class="cnt" data-c="'+k+'"></div>'; }
+  function line(k, max, ph){ return '<input type="text" data-k="'+k+'" maxlength="'+max+'" placeholder="'+esc(ph||"")+'">'; }
+
+  function teamBlock(t){
+    var p = "t_" + t.id + "_";
+    var qs = (t.q || []).filter(function(x){ return x && String(x).trim(); });
+    var list = others(), k = list.indexOf(t), nx = list[k + 1];
+    var next = nx ? '<button type="button" class="b2 nexttab" data-go="'+nx.id+'">다음 팀: '+esc(nx.name)+' →</button>'
+                  : '<button type="button" class="b2 nexttab" data-go="self">두 발표팀을 다 썼으면 ‘우리 팀에 적용’으로 ↓</button>';
+    return '<section class="team" data-team="'+t.id+'" id="panel_'+t.id+'" role="tabpanel"><h3>'+esc(t.name)+'<span class="tag">'+esc(t.topic)+'</span></h3>' +
+      '<label class="f">발표 중 메모 <span class="opt">선택 · 제출되지 않음</span><small>한 칸에 이어서 씁니다. 꼬리표를 누르면 [근거]처럼 앞에 붙습니다(안 눌러도 됨). 숫자가 몰린 꼬리표가 ① 약한 고리 후보입니다</small></label>' +
+      '<div class="mtags">' + MEMO.map(function(m, i){ return '<button type="button" data-mtag="'+t.id+'|'+i+'" title="'+esc(m.ph)+'">'+esc(m.v)+'<b></b></button>'; }).join("") + '</div>' +
+      ta(p+"memo", 800, "예: [근거] 2-2 인용, 3명 중 몇 명?\n[아이디어] 후보 A가 원인 2를 겨냥?", 84) +
+      '<label class="f">① 가장 약한 고리 하나 <span class="req">필수</span><small>위 사슬에서 질문의 답이 가장 약했던 곳 하나. 이유는 ③에 씁니다</small></label>' + chipBox(p+"link", LINKS, false, t.name+" 약한 고리") + '<div class="lhint" data-h="'+p+'link"></div>' +
+      '<label class="f">② 그 약점이 보인 슬라이드 <span class="req">필수</span><small>①에서 고른 약점이 발표의 몇 번 슬라이드에서 드러났나 — 발표팀이 바로 찾아가도록. 여러 개 골라도 됩니다</small></label>' + chipBox(p+"page", PAGES, true, t.name+" 슬라이드") +
+      '<label class="f">누구의 눈으로 봤나 <span class="opt">선택</span><small>그 사람이라면 어디서 멈칫할지 떠올리고 ③을 씁니다</small></label>' + chipBox(p+"lens", LENSES, false, t.name+" 관점") +
+      '<label class="f">③ 무엇이 왜 약한가 <span class="req">필수</span><small>무엇이 + 왜(근거). 슬라이드 번호는 ②에서 골랐으니 다시 쓰지 않아도 됩니다. 추측이면 추측이라고</small></label>' + ta(p+"fix", 500, "예: 원인 구조에 ‘비용’만 있고, 인터뷰에서 들은 ‘아는 사람이 없다’가 빠져 있다") +
+      '<label class="f">③의 근거는 <span class="req">필수</span><small>내 판단이 어디서 왔는지 한 번 누릅니다</small></label>' + chipBox(p+"basis", BASIS, false, t.name+" 근거 수준") +
+      '<label class="f">④ 이렇게 바꿔 보세요 <span class="req">필수</span><small>③의 약점을 고칠 방법 — 무엇을 · 누구에게 · 어떤 원인을 겨냥해. 문장 · 슬라이드라면 <b>지금 → 이렇게</b>로 쓰면 바로 고칠 수 있습니다</small></label>' + ta(p+"prop", 500, "예: 원인 ‘비용’ 하나 → ‘비용 · 아는 사람 없음’ 둘로. 후보 A에 첫 모임 동행을 붙인다") +
+      '<label class="f">⑤ 맞는지 이렇게 확인 <span class="req">필수</span><small>한 줄: 누구에게 무엇을 해 보면 알 수 있나</small></label>' + line(p+"check", 200, "예: 대상 5명에게 두 안내문을 보여 주고 ‘가 보겠다’ 수를 비교") +
+      '<div class="spark"><div class="qh">💡 아이디어 한 방 <span class="opt">선택 · 엉뚱해도 됨 · 평가하지 않음</span></div>' +
+      '<label class="f">이 팀이 생각 못 했을 아이디어 하나<small>고치기(④)와 별개로, 판을 흔드는 아이디어. 막히면 자극 하나를 눌러 보세요</small></label>' +
+        chipBox(p+"spark", SPARKS, false, t.name+" 발상 자극") + '<div class="lhint" data-h="'+p+'spark"></div>' +
+        ta(p+"idea", 300, "한 줄 제목 + 한 문장. 예: ‘손주 숙제 모임’ — 손주 방학 숙제를 함께 돕는 모임으로 첫발의 핑계를 만든다", 64) + '</div>' +
+      '<div class="qa"><div class="qh">＋ 가장 단단한 고리 <span class="opt">선택</span></div>' +
+      '<label class="f">이 팀이 최종발표까지 지켜야 할 강점 하나<small>고칠 점만 받으면 무엇을 지킬지 모릅니다. 고르고 이유를 한 줄로</small></label>' + chipBox(p+"strong", LINKS, false, t.name+" 단단한 고리") +
+      line(p+"strongwhy", 200, "왜 단단한가 — 예: 인용마다 ‘5명 중 4명’처럼 몇 명이 말했는지 붙어 있다") + '</div>' +
+      '<div class="qa"><div class="qh">⑥ 질문 주고받기 <span class="opt">선택 · 질의응답에서 씁니다</span></div>' +
+      '<label class="f">이 팀에게 묻고 싶은 질문 1개<small>“좋았어요”가 아니라 이 팀이 다시 생각하게 만드는 질문. 유형을 누르면 예가 나옵니다</small></label>' +
+        chipBox(p+"qtype", QTYPES, false, t.name+" 질문 유형") + '<div class="lhint" data-h="'+p+'qtype"></div>' + line(p+"q", 200, "이 팀에게 물을 질문") +
+      '<label class="f">이 팀이 6-1에서 물은 질문에 내 답' +
+        (qs.length ? '<small>' + qs.map(function(q, i){ return "Q" + (i+1) + ". " + esc(q); }).join("<br>") + '</small>' : '<small>발표 끝에 이 팀이 청중에게 물은 질문 중 하나에 답합니다</small>') +
+      '</label>' + ta(p+"ans", 400, "", 64) + '</div>' +
+      '<div class="sendbox"><button type="button" class="b1 sendone" data-send="'+t.id+'">'+esc(t.name)+'에 지금 보내기 ↗</button>' +
+      '<div class="sendst" data-ss="'+t.id+'">①~⑤를 채우면 보낼 수 있습니다. 보낸 뒤 고쳐서 다시 보내도 됩니다(최신본만 반영).</div></div>' + next +
+      '</section>';
+  }
+  function selfBlock(){
+    return '<section class="card" id="self"><h2><span class="n">2</span>우리 팀에 적용 — 마지막 발표 뒤</h2>' +
+      '<p class="sub">발표팀에게 쓴 그 사슬을 <b>우리 팀</b>에 그대로 대 봅니다. 팀원들의 답은 이름 없이 모아 우리 팀에 돌려줍니다.</p>' +
+      '<div class="mine" id="mine"></div>' +
+      '<label class="f">⑦ 발표팀에게서 배운 것 하나 <span class="req">필수</span><small>우리도 따라 하거나 피해야 할 것 — 어느 팀의 무엇</small></label>' + ta("s_learn", 300, "예: 열심히 팀처럼 인용문 옆에 ‘몇 명 중 몇 명’을 붙이면 근거가 단단해 보인다", 64) +
+      '<label class="f">⑧ 같은 사슬로 보면 우리 팀의 가장 약한 고리 <span class="req">필수</span></label>' + chipBox("s_link", LINKS, false, "우리 팀 약한 고리") +
+      '<label class="f">⑨ 최종발표 전까지 바꾸거나 확인할 것 1개 <span class="req">필수</span><small>무엇을 · 누가 · 언제까지</small></label>' + ta("s_todo", 400, "예: 11/6까지 내가 원인 2를 확인할 재인터뷰 3명을 잡는다", 64) +
+      '<label class="f">⑩ 최종발표에서 무엇으로 보여줄까 <span class="req">필수</span><small>‘고쳤다’는 말 대신 보여줄 증거</small></label>' + line("s_proof", 200, "예: 재인터뷰 기록 원문, 바꾸기 전 · 후 원인 구조 비교") +
+      '</section>';
+  }
+  function others(){ return TEAMS.filter(function(t){ return t.id !== data.my; }); }
+  function myName(){ var t = TEAMS.filter(function(x){ return x.id === data.my; })[0]; return t ? t.name : ""; }
+
+  function renderTeams(){
+    var box = $("teams");
+    if (!data.my){ box.innerHTML = '<section class="card"><p class="sub" style="margin:0">위에서 <b>내 팀</b>을 고르면 피드백할 발표팀 탭과 ‘우리 팀에 적용’이 나타납니다.</p></section>'; return; }
+    var list = others();
+    if (!list.some(function(t){ return t.id === data.tab; })) data.tab = list[0].id;
+    var tabs = '<div class="tabs" role="tablist">' + list.map(function(t){
+      return '<button type="button" role="tab" data-tab="'+t.id+'" aria-controls="panel_'+t.id+'">'+esc(t.name)+'<span class="pg" data-pg="'+t.id+'"></span></button>'; }).join("") + '</div>';
+    box.innerHTML = '<section class="card"><h2><span class="n">1</span>발표팀에게</h2><p class="sub">지금 발표하는 팀의 탭을 눌러 씁니다. 팀마다 필수 6칸(①②③·근거④⑤)을 채우면 탭에 ✓가 붙습니다.</p>' +
+      tabs + list.map(teamBlock).join("") + '</section>' + selfBlock();
+    restore(box); showTab(data.tab); paintMemo();
+  }
+  var REQ = 6;
+  function done(id){ var p = "t_" + id + "_";
+    return [!!data[p+"link"], !!(data[p+"page"] || []).length, len(p+"fix") >= 15, !!data[p+"basis"], len(p+"prop") >= 15, len(p+"check") >= 8]
+      .filter(Boolean).length; }
+  function paintTabs(){
+    each(document.querySelectorAll("[data-pg]"), function(s){ var id = s.getAttribute("data-pg"), n = done(id), t = TEAMS.filter(function(x){ return x.id === id; })[0], st = t ? sentState(t) : "none";
+      s.textContent = st === "same" ? "✓ 보냄 · " + hhmm(data["sentAt_" + id]) : st === "changed" ? "고친 내용 · 다시 보내기" : n === REQ ? "다 썼음 · 보내기 전" : "필수 " + n + " / " + REQ;
+      s.classList.toggle("done", st === "same"); });
+    each(document.querySelectorAll("[data-ss]"), function(s){ var id = s.getAttribute("data-ss"), t = TEAMS.filter(function(x){ return x.id === id; })[0], st = t ? sentState(t) : "none";
+      if (st === "same"){ s.className = "sendst ok"; s.textContent = "✓ " + hhmm(data["sentAt_" + id]) + "에 보냈습니다. 보드에 올라갔어요. 고치면 다시 보내면 됩니다."; }
+      else if (st === "changed"){ s.className = "sendst no"; s.textContent = "보낸 뒤 고친 내용이 있습니다. 다시 보내야 반영됩니다."; }
+      else if (s.className.indexOf("no") < 0 || done(id) === REQ){ s.className = "sendst"; s.textContent = done(id) === REQ ? "다 썼습니다. 지금 보내면 보드에 바로 올라갑니다." : "①~⑤를 채우면 보낼 수 있습니다. 보낸 뒤 고쳐서 다시 보내도 됩니다(최신본만 반영)."; } });
+    paintMine();
+  }
+  // 앞 단계(발표팀에게 쓴 것)를 ‘우리 팀에 적용’의 재료로 보여 줍니다
+  function paintMine(){
+    var el = $("mine"); if (!el) return;
+    var rows = others().map(function(t){ var p = "t_" + t.id + "_", w = data[p+"link"], g = data[p+"strong"];
+      return (w || g) ? '<p><b>' + esc(t.name) + '</b> — 약하다: ' + esc(w || "-") + (g ? ' · 단단하다: ' + esc(g) : '') + '</p>' : ""; }).filter(String);
+    el.innerHTML = rows.length ? '<b>내가 발표팀에게 짚은 것</b>' + rows.join("") + '<p class="hint" style="margin-top:6px">같은 질문을 우리 팀에 던져 보세요. 남에게 보인 약점이 우리에게도 있지 않나요?</p>'
+                               : '<span class="hint">발표팀 탭을 쓰면 내가 짚은 고리가 여기 모입니다. ⑦~⑩의 재료로 씁니다.</span>';
+  }
+  function showTab(id){
+    data.tab = id; persist();
+    each(document.querySelectorAll("[data-tab]"), function(b){ b.setAttribute("aria-selected", b.getAttribute("data-tab") === id ? "true" : "false"); });
+    each(document.querySelectorAll(".team"), function(s){ s.hidden = s.getAttribute("data-team") !== id; });
+    paintTabs();
+  }
+  document.addEventListener("click", function(e){
+    var m = e.target.closest && e.target.closest("[data-mtag]");
+    if (m){ var x = m.getAttribute("data-mtag").split("|"), k = "t_" + x[0] + "_memo", f = document.querySelector('[data-k="' + k + '"]');
+      var cur = String(data[k] || ""), tag = "[" + MEMO[x[1]].v + "] ";
+      data[k] = cur + (cur && !/\n$/.test(cur) ? "\n" : "") + tag;
+      if (f){ f.value = data[k]; count(f); f.focus(); try { f.setSelectionRange(f.value.length, f.value.length); } catch(_){} }
+      touch(); return; }
+    var b = e.target.closest && e.target.closest("[data-tab],[data-go]"); if (!b) return;
+    var id = b.getAttribute("data-tab") || b.getAttribute("data-go");
+    if (id === "self"){ $("self").scrollIntoView({behavior:"smooth", block:"start"}); return; }
+    showTab(id);
+    if (b.hasAttribute("data-go")){ var tb = document.querySelector(".tabs"); if (tb) tb.scrollIntoView({behavior:"smooth", block:"start"}); }
+  });
+  function count(el){ var c = document.querySelector('[data-c="'+el.getAttribute("data-k")+'"]'); if (c) c.textContent = (el.value || "").length + " / " + el.maxLength; }
+  function restore(root){
+    each(root.querySelectorAll("[data-k]"), function(el){ el.value = data[el.getAttribute("data-k")] || ""; count(el); });
+    each(root.querySelectorAll(".chips input"), function(i){ var v = data[i.name]; i.checked = Array.isArray(v) ? v.indexOf(i.value) >= 0 : v === i.value; });
+    paint();
+  }
+  function paint(){ each(document.querySelectorAll(".chips label"), function(l){ var i = l.querySelector("input"); l.classList.toggle("on", !!(i && i.checked)); }); paintHints(); }
+  function filledTeams(){ return Object.keys(data).some(function(k){ var v = data[k]; return /^t_/.test(k) && (Array.isArray(v) ? v.length : String(v || "").trim()); }); }
+
+  var root = $("root");
+  root.addEventListener("input", function(e){ var k = e.target.getAttribute("data-k"); if (!k) return;
+    data[k] = e.target.value; e.target.classList.remove("miss"); count(e.target); touch(); });
+  root.addEventListener("change", function(e){
+    var i = e.target; if (i.tagName !== "INPUT" || (i.type !== "checkbox" && i.type !== "radio")) return;
+    if (i.name === "my" && data.my && data.my !== i.value && filledTeams() &&
+        !confirm("팀을 바꾸면 피드백할 발표팀이 바뀝니다. 이미 쓴 내용은 팀별로 남아 있습니다. 바꿀까요?")){
+      var prev = data.my; each(document.getElementsByName("my"), function(x){ x.checked = x.value === prev; }); paint(); return;
+    }
+    if (i.type === "checkbox") data[i.name] = Array.prototype.filter.call(document.getElementsByName(i.name), function(x){ return x.checked; }).map(function(x){ return x.value; });
+    else data[i.name] = i.value;
+    var box = i.closest(".chips"); if (box) box.classList.remove("miss");
+    if (i.name === "my"){ renderTeams(); foldGuide(true); startRecv(); setTimeout(function(){ var tb = document.querySelector(".tabs"); if (tb) tb.scrollIntoView({behavior:"smooth", block:"start"}); }, 50); }
+    paint(); touch();
+  });
+
+  // 보는 법: 내 팀을 고르면 한 줄로 접고 발표팀 탭으로 바로 이동(제목을 누르면 다시 펼침)
+  function foldGuide(on){ $("guide").classList.toggle("folded", on); $("guideT").textContent = on ? "펼치기 ▾" : (data.my ? "접기 ▴" : ""); }
+  $("guideH").addEventListener("click", function(){ if (data.my) foldGuide(!$("guide").classList.contains("folded")); });
+
+  restore(document); renderTeams(); status(); foldGuide(!!data.my);
+
+  function say(t, ok){ var m = $("msg"); m.className = "msg " + (ok ? "ok" : "no"); m.textContent = t; m.scrollIntoView({behavior:"smooth", block:"center"}); }
+  function len(k){ return String(data[k] || "").trim().length; }
+  function fld(k){ return document.querySelector('[data-k="'+k+'"]'); }
+  function grp(name){ var x = document.getElementsByName(name)[0]; return x ? x.closest(".chips") : null; }
+  function validate(onlyId){
+    var miss = [], first = null;
+    var switched = false;
+    function mark(el, label){ if (el){ el.classList.add("miss");
+      var sec = el.closest && el.closest(".team");
+      if (sec && !switched){ switched = true; showTab(sec.getAttribute("data-team")); }   // 빈칸이 있는 첫 팀 탭을 엽니다
+      if (!first) first = el; } miss.push(label); }
+    if (!len("name")) mark(fld("name"), "이름");
+    if (!/^\d{6,10}$/.test(String(data.sid || "").trim())) mark(fld("sid"), "학번(숫자)");
+    if (!data.my) mark($("myTeam"), "내 팀");
+    else {
+      others().filter(function(t){ return !onlyId || t.id === onlyId; }).forEach(function(t){ var p = "t_" + t.id + "_";
+        if (!data[p+"link"]) mark(grp(p+"link"), t.name + " ① 약한 고리");
+        if (!(data[p+"page"] || []).length) mark(grp(p+"page"), t.name + " ② 슬라이드");
+        if (len(p+"fix") < 15) mark(fld(p+"fix"), t.name + " ③(15자 이상)");
+        if (!data[p+"basis"]) mark(grp(p+"basis"), t.name + " ③의 근거");
+        if (len(p+"prop") < 15) mark(fld(p+"prop"), t.name + " ④(15자 이상)");
+        if (len(p+"check") < 8) mark(fld(p+"check"), t.name + " ⑤(8자 이상)");
+      });
+      if (!onlyId){
+      if (len("s_learn") < 10) mark(fld("s_learn"), "⑦ 배운 것");
+      if (!data.s_link) mark(grp("s_link"), "⑧ 우리 팀 약한 고리");
+      if (len("s_todo") < 15) mark(fld("s_todo"), "⑨ 할 일(15자 이상)");
+      if (len("s_proof") < 8) mark(fld("s_proof"), "⑩ 보여줄 증거");
+      }
+    }
+    if (onlyId){ if (miss.length){ var ss = document.querySelector('[data-ss="' + onlyId + '"]'); if (ss){ ss.className = "sendst no"; ss.textContent = "아직 채우지 않은 칸: " + miss.join(" · "); }
+        if (first) setTimeout(function(){ first.scrollIntoView({behavior:"smooth", block:"center"}); }, 200); return false; } return true; }
+    if (!(data.c1 || []).length) mark(grp("c1"), "제출 전 확인");
+    if (miss.length){ say("아직 채우지 않은 칸: " + miss.join(" · "), false); if (first) setTimeout(function(){ first.scrollIntoView({behavior:"smooth", block:"center"}); }, 400); return false; }
+    return true;
+  }
+  function v(k){ return String(data[k] || "").trim(); }
+  function rowOf(t){ var p = "t_" + t.id + "_";
+        return {target:t.name, link:data[p+"link"] || "", page:(data[p+"page"] || []).join(" / "), lens:data[p+"lens"] || "", fix:v(p+"fix"), basis:data[p+"basis"] || "", strong:data[p+"strong"] || "", strongwhy:v(p+"strongwhy"), spark:(v(p+"idea") ? data[p+"spark"] || "" : ""), idea:v(p+"idea"), qtype:(v(p+"q") ? data[p+"qtype"] || "" : ""), q:v(p+"q"), prop:v(p+"prop"), check:v(p+"check"), ans:v(p+"ans")}; }
+  function payload(onlyId){
+    var b = {kind:"cap-mis-midfb", version:2, sid:v("sid"), name:v("name"), team:myName(),
+      rows: others().filter(function(t){ return !onlyId || t.id === onlyId; }).map(rowOf),
+      self: {learn:v("s_learn"), link:data.s_link || "", todo:v("s_todo"), proof:v("s_proof")}};
+    if (onlyId){ b.mode = "team"; delete b.self; }
+    return b;
+  }
+  function fileText(){
+    var b = payload();
+    var L = ["캡스톤디자인(경영정보Ⅰ) 중간발표 동료 피드백", "이름: " + b.name + " · 학번: " + b.sid + " · 내 팀: " + b.team, "작성: " + new Date().toLocaleString("ko-KR"), ""];
+    b.rows.forEach(function(r){ var id = (TEAMS.filter(function(t){ return t.name === r.target; })[0] || {}).id;
+      var memo = v("t_" + id + "_memo").replace(/\n/g, " / ");
+      L.push("■ " + r.target, "발표 중 메모: " + memo, "① 약한 고리: " + r.link, "② 슬라이드: " + r.page, "누구의 눈: " + r.lens, "③ 무엇이 왜: " + r.fix, "③의 근거: " + r.basis, "④ 제안: " + r.prop, "⑤ 확인: " + r.check, "💡 아이디어: " + (r.spark ? "[" + r.spark + "] " : "") + r.idea, "단단한 고리: " + r.strong + (r.strongwhy ? " — " + r.strongwhy : ""), "⑥ 내 질문: " + (r.qtype ? "[" + r.qtype + "] " : "") + r.q, "⑥ 6-1 답: " + r.ans, ""); });
+    L.push("■ 우리 팀에 적용", "⑦ 배운 것: " + b.self.learn, "⑧ 우리 팀 약한 고리: " + b.self.link, "⑨ 할 일: " + b.self.todo, "⑩ 보여줄 증거: " + b.self.proof);
+    return L.join("\n");
+  }
+  // 저장: 이 기기에 지금 상태를 저장(자동 저장도 계속됨). 서버 제출과는 다릅니다.
+  $("keep").addEventListener("click", function(){
+    data.keptAt = new Date().toISOString(); persist();
+    var b = $("keep"); b.textContent = "저장됨 ✓"; setTimeout(function(){ b.textContent = "저장"; }, 1500);
+    $("st").textContent = "이 기기에 저장됨 · " + hhmm(data.keptAt) + (data.sentAt && !data.dirty ? " · 제출 완료" : " · 제출은 아직");
+  });
+
+  // PDF 저장 — 공식 양식(테두리 표)으로 그린 뒤 html2canvas로 찍고, 행 경계에서 쪽을 나눠 jsPDF로 만듭니다(디자인씽킹 워크북과 같은 방식)
+  function P(x){ var t = String(x || "").trim(); return t ? '<div class="pre">' + esc(t) + '</div>' : '<span class="muted">(미작성)</span>'; }
+  function reportHTML(){
+    var b = payload(), now = new Date(), d = now.getFullYear() + ". " + (now.getMonth() + 1) + ". " + now.getDate() + ".";
+    var sent = data.sentAt ? (data.dirty ? "제출함(" + hhmm(data.sentAt) + ") · 이후 수정분 미제출" : "제출 완료(" + hhmm(data.sentAt) + ")") : "미제출";
+    var h = '<div class="rep">' +
+      '<h1 class="brk">중간발표 동료 피드백 기록지</h1>' +
+      '<div class="sub brk">캡스톤디자인(경영정보Ⅰ) · 디자인씽킹 프로젝트 중간발표 · 2026. 10. 30.</div>' +
+      '<table class="brk"><tr><th>과목명</th><td colspan="3">캡스톤디자인(경영정보Ⅰ)</td></tr>' +
+      '<tr><th>활동</th><td colspan="3">중간발표 동료 피드백 — 다른 팀의 가장 약한 고리를 찾아 주고, 우리 팀으로 가져오기</td></tr>' +
+      '<tr><th>이름</th><td>' + esc(b.name) + '</td><th>학번</th><td>' + esc(b.sid) + '</td></tr>' +
+      '<tr><th>소속 팀</th><td>' + esc(b.team) + '</td><th>제출 상태</th><td>' + esc(sent) + '</td></tr></table>' +
+      '<table class="brk"><tr><th>판단 기준</th><td>대상 → 근거 → 문제 → 원인 → 아이디어 → 확인 (사슬에서 가장 약한 고리 하나를 찾는다)</td></tr></table>';
+    b.rows.forEach(function(r, k){
+      var t = TEAMS.filter(function(x){ return x.name === r.target; })[0] || {}, memo = v("t_" + t.id + "_memo");
+      h += '<h2 class="brk">' + (k + 1) + '. 발표팀 피드백 — ' + esc(r.target) + (t.topic ? ' <span class="muted" style="font-weight:400">(' + esc(t.topic) + ')</span>' : '') + '</h2>' +
+        '<table class="brk"><tr><th>가장 약한 고리</th><td>' + (esc(r.link) || '<span class="muted">(미선택)</span>') + '</td><th>해당 슬라이드</th><td>' + (esc(r.page) || '<span class="muted">-</span>') + '</td></tr>' +
+        '<tr><th>관점</th><td>' + (esc(r.lens) || '<span class="muted">-</span>') + '</td><th>근거 수준</th><td>' + (esc(r.basis) || '<span class="muted">-</span>') + '</td></tr></table>' +
+        '<table class="brk"><tr><th>(1) 무엇이 왜 약한가</th><td>' + P(r.fix) + '</td></tr>' +
+        '<tr><th>(2) 이렇게 바꿔 보세요</th><td>' + P(r.prop) + '</td></tr>' +
+        '<tr><th>(3) 맞는지 이렇게 확인</th><td>' + P(r.check) + '</td></tr></table>' +
+        '<table class="brk"><tr><th>아이디어 제안</th><td>' + (r.idea ? (r.spark ? '<b>[' + esc(r.spark) + ']</b> ' : '') + P(r.idea) : '<span class="muted">(없음)</span>') + '</td></tr>' +
+        '<tr><th>지켜야 할 강점</th><td>' + (r.strong ? '<b>' + esc(r.strong) + '</b>' + (r.strongwhy ? P(r.strongwhy) : '') : '<span class="muted">(없음)</span>') + '</td></tr>' +
+        '<tr><th>발표팀에 묻는 질문</th><td>' + (r.q ? (r.qtype ? '<b>[' + esc(r.qtype) + ']</b> ' : '') + P(r.q) : '<span class="muted">(없음)</span>') + '</td></tr>' +
+        '<tr><th>6-1 질문에 대한 답</th><td>' + (r.ans ? P(r.ans) : '<span class="muted">(없음)</span>') + '</td></tr>' +
+        (memo ? '<tr><th>발표 중 메모</th><td>' + P(memo) + '</td></tr>' : '') + '</table>';
+    });
+    var sf = b.self;
+    h += '<h2 class="brk">' + (b.rows.length + 1) + '. 우리 팀에 적용</h2>' +
+      '<table class="brk"><tr><th>발표팀에게서 배운 것</th><td>' + P(sf.learn) + '</td></tr>' +
+      '<tr><th>우리 팀의 가장 약한 고리</th><td>' + (esc(sf.link) || '<span class="muted">(미선택)</span>') + '</td></tr>' +
+      '<tr><th>최종발표 전 할 일</th><td>' + P(sf.todo) + '</td></tr>' +
+      '<tr><th>최종발표에서 보여줄 증거</th><td>' + P(sf.proof) + '</td></tr></table>' +
+      '<h2 class="brk">작성 원칙 확인</h2>' +
+      '<table class="brk"><tr><td style="width:36px;text-align:center">' + ((data.c1 || []).length ? "✔" : "☐") + '</td><td>사람이 아니라 내용에 대해, 고칠 방법과 함께 썼다</td></tr></table>' +
+      '<div class="foot brk">' + esc(b.name) + ' · ' + esc(b.sid) + ' · 작성일 ' + d + ' · 발표팀에는 이름 없이 내용만 전달됩니다</div></div>';
+    return h;
+  }
+  function loadScript(src){ return new Promise(function(res, rej){ var sc = document.createElement("script"); sc.src = src; sc.onload = res; sc.onerror = function(){ rej(new Error("load")); }; document.head.appendChild(sc); }); }
+  var libsReady = null;
+  function loadLibs(){
+    if (!libsReady) libsReady = Promise.all([
+      window.html2canvas ? 0 : loadScript("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"),
+      (window.jspdf && window.jspdf.jsPDF) ? 0 : loadScript("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js")
+    ]).catch(function(e){ libsReady = null; throw e; });
+    return libsReady;
+  }
+  function savePDF(){
+    var host = $("repHost"), name = "MIS_중간발표피드백_" + (v("sid") || "학번") + "_" + (v("name") || "이름") + ".pdf";
+    return loadLibs().then(function(){ return (document.fonts && document.fonts.ready) ? document.fonts.ready : 0; }).then(function(){
+      host.innerHTML = reportHTML();
+      var doc = host.firstElementChild, scale = 2;
+      return window.html2canvas(doc, {scale:scale, backgroundColor:"#ffffff", useCORS:true, logging:false, windowWidth:900}).then(function(canvas){
+        var W = doc.offsetWidth, pageH = Math.floor(W * 297 / 210), top0 = doc.getBoundingClientRect().top;
+        var bounds = Array.prototype.map.call(doc.querySelectorAll(".brk:not(h1):not(h2):not(.sub), .rep tr"), function(el){ return Math.round(el.getBoundingClientRect().bottom - top0); }).sort(function(a, c){ return a - c; });
+        var total = doc.offsetHeight, padTop = 40, pdf = new window.jspdf.jsPDF({unit:"pt", format:"a4", orientation:"portrait"});
+        var pw = pdf.internal.pageSize.getWidth(), ph = pdf.internal.pageSize.getHeight(), start = 0, page = 0;
+        while (start < total - 2){
+          var avail = pageH - 44 - (page === 0 ? 0 : padTop), end = Math.min(start + avail, total);
+          if (end < total){ var cands = bounds.filter(function(x){ return x > start + 80 && x <= end; }); if (cands.length) end = cands[cands.length - 1]; }
+          var sh = end - start, c = document.createElement("canvas"); c.width = W * scale; c.height = Math.ceil(sh * scale);
+          var cx = c.getContext("2d"); cx.fillStyle = "#fff"; cx.fillRect(0, 0, c.width, c.height);
+          cx.drawImage(canvas, 0, Math.floor(start * scale), W * scale, Math.ceil(sh * scale), 0, 0, W * scale, Math.ceil(sh * scale));
+          if (page > 0) pdf.addPage();
+          pdf.addImage(c.toDataURL("image/jpeg", 0.92), "JPEG", 0, page === 0 ? 0 : padTop * pw / W, pw, sh * pw / W);
+          page++; start = end;
+          pdf.setFontSize(8); pdf.setTextColor(120); pdf.text(String(page), pw - 30, ph - 16);
+        }
+        host.innerHTML = "";
+        var blob = pdf.output("blob"), a = document.createElement("a");
+        a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click();
+        setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+        return name;
+      });
+    });
+  }
+  function printFallback(){
+    var d = $("pdfdoc"); d.innerHTML = reportHTML();
+    var box = $("copy"); box.value = fileText(); box.style.display = "block"; $("copyHint").style.display = "block";
+    try { window.print(); } catch(e){}
+  }
+  $("pdf").addEventListener("click", function(){
+    var btn = $("pdf"); btn.disabled = true; btn.textContent = "만드는 중…";
+    savePDF().then(function(name){ say("PDF를 내려받았습니다 · " + name, true); }, function(){
+      $("repHost").innerHTML = "";
+      say("바로 내려받기가 안 되어 인쇄 창을 엽니다. 대상(프린터)에서 ‘PDF로 저장’을 고르세요.", false); printFallback();
+    }).then(function(){ btn.disabled = false; btn.textContent = "PDF 저장"; });
+  });
+
+  function post(body){
+    return new Promise(function(res, rej){
+      var gs = window.google && google.script && google.script.run;
+      if (gs){ google.script.run.withSuccessHandler(res).withFailureHandler(rej).submit(JSON.stringify(body)); return; }
+      if (!SUBMIT_URL){ rej(new Error("NOURL")); return; }
+      fetch(SUBMIT_URL, {method:"POST", credentials:"omit", redirect:"follow", headers:{"Content-Type":"text/plain;charset=utf-8"}, body:JSON.stringify(body)})
+        .then(function(r){ return r.json(); }).then(res, rej);
+    });
+  }
+  function trySend(n, body){
+    body = body || payload();
+    return post(body).then(function(j){
+      if (j && j.busy && n < 3) return new Promise(function(r){ setTimeout(r, 2500 + Math.random() * 4000); }).then(function(){ return trySend(n + 1, body); });
+      return j;
+    });
+  }
+  $("send").addEventListener("click", function(){
+    if (!validate()) return;
+    var btn = $("send"); btn.disabled = true; btn.textContent = "보내는 중…";
+    trySend(0).then(function(j){
+      if (j && j.ok){
+        data.sentAt = new Date().toISOString(); data.dirty = false;
+        others().forEach(function(t){ data["sent_" + t.id] = JSON.stringify(rowOf(t)); data["sentAt_" + t.id] = data.sentAt; });
+        persist(); status(); paintTabs();
+        say("제출되었습니다 · " + (j.count > 1 ? j.count + "번째 제출(이것이 최신본)" : "첫 제출") + ". 공용 컴퓨터라면 아래 ‘이 기기에서 내 입력 지우기’를 눌러 주세요.", true);
+      } else say("제출하지 못했습니다: " + ((j && j.error) || "알 수 없는 오류") + " — 잠시 뒤 다시 누르거나 ‘PDF 저장’ 후 DOOR에 올려 주세요.", false);
+    }, function(err){
+      if (err && err.message === "NOURL") say("온라인 제출 주소가 아직 설정되지 않았습니다. ‘PDF 저장’을 눌러 DOOR에 올려 주세요.", false);
+      else say("인터넷 연결 또는 서버 문제로 제출하지 못했습니다. 잠시 뒤 다시 누르거나 ‘PDF 저장’ 후 DOOR에 올려 주세요.", false);
+    }).then(function(){ btn.disabled = false; btn.textContent = "제출"; });
+  });
+
+  // 발표 직후 그 팀 것만 바로 보내기
+  document.addEventListener("click", function(e){
+    var b = e.target.closest && e.target.closest("[data-send]"); if (!b) return;
+    var id = b.getAttribute("data-send"), t = TEAMS.filter(function(x){ return x.id === id; })[0], ss = document.querySelector('[data-ss="' + id + '"]');
+    if (!validate(id)) return;
+    b.disabled = true; b.textContent = "보내는 중…";
+    trySend(0, payload(id)).then(function(j){
+      if (j && j.ok){ data["sent_" + id] = JSON.stringify(rowOf(t)); data["sentAt_" + id] = new Date().toISOString(); persist(); paintTabs(); }
+      else if (ss){ ss.className = "sendst no"; ss.textContent = "보내지 못했습니다: " + ((j && j.error) || "알 수 없는 오류") + " — 잠시 뒤 다시 누르세요."; }
+    }, function(err){
+      if (ss){ ss.className = "sendst no"; ss.textContent = err && err.message === "NOURL" ? "온라인 제출 주소가 아직 설정되지 않았습니다. 마지막에 ‘PDF 저장’으로 내세요." : "인터넷 또는 서버 문제로 보내지 못했습니다. 잠시 뒤 다시 누르세요."; }
+    }).then(function(){ b.disabled = false; b.textContent = t.name + "에 지금 보내기 ↗"; });
+  });
+  function sentState(t){ var sig = data["sent_" + t.id]; if (!sig) return "none"; return sig === JSON.stringify(rowOf(t)) ? "same" : "changed"; }
+
+  // ── 우리 팀이 받은 동료 피드백(종류별 탭) ──
+  var RK = [
+    {k:"weak", t:"약한 고리"}, {k:"fix", t:"무엇이 왜 약한가"}, {k:"prop", t:"고칠 방법 · 확인"}, {k:"idea", t:"💡 아이디어"},
+    {k:"q", t:"받은 질문"}, {k:"ans", t:"6-1 질문에 답"}, {k:"keep", t:"지킬 강점"}, {k:"self", t:"팀원 할 일"}
+  ];
+  var RD = null, rcur = "weak", rtimer = null;
+  function getRecv(team){
+    return new Promise(function(res, rej){
+      var gs = window.google && google.script && google.script.run;
+      if (gs){ google.script.run.withSuccessHandler(res).withFailureHandler(rej).received(team); return; }
+      if (!SUBMIT_URL) return rej(new Error("NOURL"));
+      fetch(SUBMIT_URL + "?view=received&team=" + encodeURIComponent(team) + "&t=" + Date.now(), {credentials:"omit", redirect:"follow", cache:"no-store"}).then(function(r){ return r.json(); }).then(res, rej);
+    });
+  }
+  function rlen(k){ if (!RD) return 0; if (k === "weak" || k === "strong") return RD.n; return (RD[k] || []).length; }
+  function bars(list, cls){ var mx = Math.max.apply(null, list.map(function(x){ return x.n; }).concat([1]));
+    return list.map(function(x){ return '<div class="rbar"><span>' + esc(x.k) + '</span><i class="' + (cls || "") + '" style="width:' + Math.round(x.n / mx * 60) + '%"></i><em>' + x.n + '</em></div>'; }).join(""); }
+  function rItems(k){
+    var L = RD[k] || [], E = function(x){ return esc(x).replace(/\n/g, "<br>"); };
+    if (!L.length) return '<p class="hint">아직 없습니다.</p>';
+    return L.map(function(x){
+      if (k === "fix") return '<div class="ritem"><span class="rt w">' + esc(x.link) + '</span>' + (x.page ? '<span class="rt g">' + esc(x.page) + '</span>' : '') + (x.basis ? '<span class="rt g">' + esc(x.basis) + '</span>' : '') + '<br>' + E(x.text) + '</div>';
+      if (k === "prop") return '<div class="ritem">' + (x.link ? '<span class="rt w">' + esc(x.link) + '</span><br>' : '') + E(x.text) + (x.check ? '<span class="rs">확인: ' + E(x.check) + '</span>' : '') + '</div>';
+      if (k === "self") return '<div class="ritem">' + (x.tag ? '<span class="rt w">' + esc(x.tag) + '</span><br>' : '') + E(x.text) + (x.proof ? '<span class="rs">보여줄 증거: ' + E(x.proof) + '</span>' : '') + (x.learn ? '<span class="rs">배운 것: ' + E(x.learn) + '</span>' : '') + '</div>';
+      var cls = k === "idea" ? "y" : k === "keep" ? "s" : "";
+      return '<div class="ritem">' + (x.tag ? '<span class="rt ' + cls + '">' + esc(x.tag) + '</span>' : '') + (x.text ? (x.tag ? '<br>' : '') + E(x.text) : '') + '</div>';
+    }).join("");
+  }
+  function paintRecv(){
+    $("rtabs").innerHTML = RK.map(function(x){ return '<button type="button" data-rk="' + x.k + '" aria-selected="' + (x.k === rcur) + '">' + esc(x.t) + '<b>' + rlen(x.k) + '</b></button>'; }).join("");
+    if (!RD){ $("rbody").innerHTML = '<p class="hint">불러오는 중…</p>'; return; }
+    if (!RD.n && !(RD.self || []).length){ $("rbody").innerHTML = '<p class="hint">아직 받은 피드백이 없습니다. 다른 팀 학생들이 ‘지금 보내기’를 누르면 여기에 나타납니다.</p>'; return; }
+    $("rbody").innerHTML = rcur === "weak" ? '<p class="hint" style="margin:0 0 6px">다른 팀이 짚은 가장 약한 고리 (' + RD.n + '명)</p>' + bars(RD.weak) + '<p class="hint" style="margin:12px 0 6px">다른 팀이 꼽은 단단한 고리</p>' + bars(RD.strong, "s") : rItems(rcur);
+  }
+  function loadRecv(){
+    if (!data.my) return; var t = TEAMS.filter(function(x){ return x.id === data.my; })[0]; if (!t) return;
+    getRecv(t.name).then(function(j){ if (j && j.ok){ RD = j; $("recvAt").textContent = "갱신 " + j.at; paintRecv(); } else { $("rbody").innerHTML = '<p class="hint">불러오지 못했습니다: ' + esc((j && j.error) || "") + '</p>'; } },
+      function(){ $("rbody").innerHTML = '<p class="hint">연결이 되면 여기에 받은 피드백이 나타납니다.</p>'; });
+  }
+  function startRecv(){
+    $("recvCard").hidden = !data.my; if (!data.my) return;
+    RD = null; paintRecv(); loadRecv();
+    if (rtimer) clearInterval(rtimer); rtimer = setInterval(function(){ if (!document.hidden) loadRecv(); }, 30000);
+  }
+  document.addEventListener("click", function(e){ var b = e.target.closest && e.target.closest("[data-rk]"); if (!b) return; rcur = b.getAttribute("data-rk"); paintRecv(); });
+  startRecv();
+
+  $("wipe").addEventListener("click", function(){
+    if (!confirm("이 기기에 임시 저장된 이름 · 학번 · 피드백을 모두 지웁니다. (이미 제출한 내용은 서버에 남습니다)")) return;
+    try { localStorage.removeItem(KEY); } catch(e){}
+    data = {}; restore(document); renderTeams(); status();
+    $("copy").value = ""; $("copy").style.display = "none"; $("copyHint").style.display = "none";
+    say("이 기기에서 지웠습니다.", true);
+  });
+})();
+</script>
+</body>
+</html>
